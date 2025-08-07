@@ -5,237 +5,743 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lenny for Libraries</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="mailto:mek@archive.org" class="font-medium hover:underline"><img style="height: 40px; display: inline; margin-right: 10px;" src="/imgs/lenny.jpg"><span class="text-blue-600">Lenny</span> for Libraries</a>
+<body class="bg-white text-gray-900 font-inter antialiased">
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo Section -->
+        <div class="flex items-center space-x-3">
+          <img src="/imgs/lenny.jpg" alt="Lenny" class="w-10 h-15 rounded-lg">
+          <div>
+            <h1 class="text-lg font-semibold text-gray-900">Lenny</h1>
+            <p class="text-xs text-gray-500">for Libraries</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-1 bg-gray-100 rounded-lg p-1 border border-gray-200">
+          <a href="#features" class="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white/90 rounded-md transition-all duration-200 font-medium">Features</a>
+          <a href="#about" class="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white/90 rounded-md transition-all duration-200 font-medium">About</a>
+          <a href="https://github.com/archivelabs/lenny" class="ml-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-200 shadow-sm hover:shadow-md">Try Lenny</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <section class="text-center py-12 px-3 bg-gradient-to-br from-blue-50 to-white">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl font-bold mb-4">Lenny: The Library-in-a-Box</h1>
-      <p class="text-xl text-gray-700 mb-8">Lenny is a plug-and-play, open source, Library-in-a-Box that allows <strong>libraries</strong> to <code>preserve</code> and <code>lend</code> digital books.</p>
-      <a href="https://github.com/archivelabs/lenny" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">Try Lenny</a>
+  <section class="relative overflow-hidden">
+    <!-- Hero Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
+    
+    <!-- Hero Content -->
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left Column - Text -->
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              Lenny:
+              <span class="text-blue-600">The Library-in-a-Box</span>
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-lg">
+              Lenny is an plug-and-play, open-source, Library-in-a-Box that empowers libraries to preserve, own, and lend digital books on their own terms.
+            </p>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-4 mt-6">
+            <a href="https://github.com/archivelabs/lenny" 
+               class="group inline-flex items-center justify-center px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-all duration-200 shadow-sm hover:shadow text-center">
+              <svg class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+              Get Started
+            </a>
+          
+          </div>
+        </div>
+        
+        <!-- Right Column - Video -->
+        <div class="lg:pl-8">
+          <div class="relative mx-auto max-w-lg">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+              <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;">
+                <iframe 
+                  src="https://archive.org/embed/lenny_202508" 
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                  frameborder="0" 
+                  webkitallowfullscreen="true" 
+                  mozallowfullscreen="true" 
+                  allowfullscreen 
+                  allow="autoplay"
+                  title="Lenny Demo Video"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
-    <div class="mt-8">
-      <div class="relative mx-auto w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
-        <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;">
-          <iframe 
-            src="https://archive.org/embed/lenny_202508" 
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:0.75rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -4px rgba(0,0,0,0.1);" 
-            frameborder="0" 
-            webkitallowfullscreen="true" 
-            mozallowfullscreen="true" 
-            allowfullscreen 
-            allow="autoplay"
-            title="Lenny Demo Video"
-          ></iframe>
+  </section>
+
+  <!-- Installation Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-8">
+        <div class="space-y-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+            Quick Installation
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Get Lenny running in minutes with our simple one-line installation command
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 shadow-sm">
+          <div class="space-y-6">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-sm text-gray-500 font-medium">Terminal Command</span>
+              <button 
+                class="inline-flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-200 rounded-lg transition-colors border border-gray-300" 
+                onclick="navigator.clipboard.writeText('curl -fsSL https://raw.githubusercontent.com/ArchiveLabs/lenny/refs/heads/main/install.sh | sudo sh')" 
+                title="Copy to clipboard"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                Copy
+              </button>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-6">
+              <code class="text-green-400 font-mono text-sm md:text-base break-all block">
+                curl -fsSL https://raw.githubusercontent.com/ArchiveLabs/lenny/refs/heads/main/install.sh | sudo sh
+              </code>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6 pt-8">
+          <div class="text-center space-y-2">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Downloads Dependencies</h3>
+            <p class="text-sm text-gray-600">Automatically installs Docker and all required components</p>
+          </div>
+          
+          <div class="text-center space-y-2">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Quick Setup</h3>
+            <p class="text-sm text-gray-600">Configures Lenny with sensible defaults for immediate use</p>
+          </div>
+          
+          <div class="text-center space-y-2">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Production Ready</h3>
+            <p class="text-sm text-gray-600">Includes security settings and optimization for library use</p>
+          </div>
+        </div>
+        
+        <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+          <div class="flex items-start space-x-3">
+            <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h4 class="font-semibold text-blue-900 mb-1">System Requirements</h4>
+              <p class="text-sm text-blue-800">Requires a Linux system with curl and sudo access. Compatible with Ubuntu, Debian, CentOS, and most modern distributions.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why? -->
-  <section class="py-16 px-8 max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-10">A Way to Preserve Digital Books</h2>
-    <h3 class="text-2xl mb-5">Today, many libraries are only given an option to <strong>rent</strong> ebooks, from platforms like Overdrive.</h3>
-    <ul class="list-disc list-inside space-y-2">
-      <li>It's <strong>unsustainable</strong> for libraries to <strong>re-pay</strong> every year to <strong title="In some cases a library might choose to rent a specific title, but libraries should have the choice to buy.">rent</strong> the same ebooks.</li>
-
-      <li>When libraries <strong>rent</strong>, they <strong>don't own</strong> any books and can't <strong>preserve</strong> an <strong>equitable</strong> collection.</li>
-      <li>Many libraries don't have an alternative to <strong>buy</strong>, <strong>preserve</strong>, or <strong>lend</strong> digital books.</li>
-    </ul>
-  </section>
-
-  <!-- Vision Section -->
-  <section class="py-16 px-8 max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-20">Here's the vision we aim to build &mdash; together...</h2>
-
-    <!-- Feature 1 -->
-    <div class="flex flex-col lg:flex-row items-center mb-2">
-      <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
-        <h3 class="text-2xl font-semibold mb-4">Build your Library</h3>
-        <ul class="list-disc list-inside space-y-2">
-          <li>Lenny comes <strong>preloaded</strong> with thousands of open access titles</li>
-          <li>Easily import & secure your library books</li>
-          <li>Buy & import from <a class="underline" href="https://openlibrary.press">openlibrary.press</a> with 1-click</li>
-        </ul>
-      </div>
-      <div class="lg:w-1/2">
-  <img style="width: 500px;" src="/imgs/lennybox.jpg">
-
-      </div>
-    </div>
-
-    <!-- Feature 2 -->
-    <div class="flex flex-col lg:flex-row-reverse items-center mb-2">
-      <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pl-12">
-        <h3 class="text-2xl font-semibold mb-4">Lend your books <i>directly</i> to your patrons</h3>
-        <ul class="list-disc list-inside space-y-2">
-          <li>Customizable digital lending rules</li>
-          <li>Use LCP & Thorium Web Reader</li>
-          <li>Analytics dashboards for engagement insights</li>
-        </ul>
-      </div>
-      <div class="lg:w-1/2">
-  <img style="height: 400px;" src="/imgs/borrow.jpg">
-<!--
-  <video style="max-height: 400px;" loop="loop" autoplay="autoplay" muted="muted"><source src="https://d1jj76g3lut4fe.cloudfront.net/processed/thumb/2VVVW90d2rH79d13Et.mp4?Expires=1749149639&amp;Signature=lWFpK~G-QgLBoLMfM~KHIganzZtHaneepd-slYbAPNyYwQAp~FCGu0xSSB-l-7GyD2~x~Oqmwn4oFEJ4IIb4yNqUjvToU1Iye~vQTytkIW~pEWgsUDFPBFxIA4GXYNYoHvmxn2LtTN5OpSdQz40oSIJz8xjGAxHQcLGRXgsi1ac3RDOjwRBcLEdftQMdOrDHZDcYPJJVR~o~ydu7oQ1Uf0mARdCrdnH5wQ8Q5NQxJj3NuRZ2Wb70lGksVWXg1ZPfDUhJJOb2qrRwV1u1nn~aGwmzlqx~7zSoKY6I3xa-BH01mpQCaikDSx2Ayn5teMivK7kSIjN4MDeYd6vuqP7tmA__&amp;Key-Pair-Id=K2YEDJLVZ3XRI#t=0.001" type="video/mp4"></video>
--->
-  <!-- <video loop="loop" autoplay="autoplay" muted="muted"><source src="https://d1jj76g3lut4fe.cloudfront.net/processed/thumb/5LHGJ1Af0J3gl9a9Jt.mp4?Expires=1749149591&amp;Signature=KDW1AZgEsLoEEvXg4M0CA90qOU~yZneLZrdqy3UkMaJgPt20tYj8NGu027BYECP7qGFEwIh2EbMjGSYvdtGssLVUBvrcLt9VQn-sAsVcx2XmFIhbWpgLIsVQvtSNjFWv5mh1B6R7QKt5BY76KvADH9W51kvTtFGEbUKeBhnazNWl-MAoVrLvgwC0h~2OyMCeObGXE0Idi96SZ9DR14~X95-gmbK0VjHw3dBhgem0IjH8Z-uY6~dwmamW3ApV~Y0MBz~MYJiboVvpYgYSBMCH4C1U8E4Ikpa-P0mWYZGL-2yGhQbHocXhrB4hlHc8cibm~rJwgZ4dyei07FZEbni~rA__&amp;Key-Pair-Id=K2YEDJLVZ3XRI#t=0.001" type="video/mp4"></video> -->
-      </div>
-    </div>
-
-    <!-- Feature 3 -->
-    <div class="flex flex-col lg:flex-row items-center">
-      <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
-        <h3 class="text-2xl font-semibold mb-4">Automatic up-to-date OPDS Feeds</h3>
-        <ul class="list-disc list-inside space-y-2">
-          <li>Real-time metadata from OpenLibrary.org</li>
-    <li>Metadata is shared and fixed in one public place</li>
-          <li>Loads directly into Thorium, SimplyE, Aldiko Next, and more</li>
-        </ul>
-      </div>
-      <div class="lg:w-1/2">
-  <img src="https://opds.io/img/illustration4.png">
-<!--
-  <video style="max-height: 400px;" loop="loop" autoplay="autoplay" muted="muted"><source src="https://d1jj76g3lut4fe.cloudfront.net/processed/thumb/YqALR950X3jUz5Ds13.mp4?Expires=1749150902&amp;Signature=jd4TcHppaVSfeim2jv1e2NBLOeOClFOetv1PrG6RAJczFTAz0swN5PSE2tpN8w8Ja4ypfutQHo0hLUbkrqJstQt-J6FEFCBxz523CNn53jB2y1Hb1EsCfLmbixJzSLuLCKOQy64wivHDTgumNigKv8qenV7twcXxlQgqe08vRbPMEPJkCZydJ0Auz7zKUdS6IsvfL7QeiR6YeUvSZyYgIoUzhfHIcfqPkW74QFgidIzexWmnSvdt91gurzUS8ijG7yP2Tn4FduFpGRByhwDr0a-KIUod~g~lJzPW-hjxII4HAVLsfu6tj65ePrJ10hYLExDt~teYp7g9P6cPaBrITA__&amp;Key-Pair-Id=K2YEDJLVZ3XRI#t=0.001" type="video/mp4"></video>
--->
-      </div>
-    </div>
-
-    <!-- Feature 4 -->
-    <div class="flex flex-col lg:flex-row items-center mb-2">
-      <div class="lg:w-1/2">
-  <img src="https://i.gifer.com/J5A.gif">
-  <!--
-  <img src="/imgs/lennynetwork.jpg" style="width: 400px;">
-  -->
-      </div>
-      <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
-        <h3 class="text-2xl font-semibold mb-4">A federated future for libraries</h3>
-
-        <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-2">
-          Imagine an world where every <strong>library</strong> is a critical destination in a unified, global network:
-        </p>
-        <ul class="list-disc list-inside space-y-2">
-          <li><strong>Lenny</strong> super-charges every library into a digitally sovereign, discoverable partner.</li>
-          <li><strong><a href="https://openlibrary.org" class="underline">OpenLibrary.org</a></strong> helps us connect: empowering 11.5M million readers to find and borrow books directly from participating libraries.</li>
-          <li><strong><a href="https://openlibrary.press" class="underline">OpenLibrary.press</a></strong> empowers authors and publishers to escape the walls of corporate platforms and securely sell DRM-free books.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="py-20 bg-blue-50 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Built to Ensure Library Futures</h2>
-      <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-        Lenny is the missing infrastructure libraries need to reassert ownership over digital books.
-        Paired with <a href="https://openlibrary.press" class="text-blue-600 underline">OpenLibrary.press</a>, libraries can now buy ownable books directly from authors and host them locally or collaboratively.
-      </p>
-      <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-        Discovery happens through <a href="https://openlibrary.org" class="text-blue-600 underline">OpenLibrary.org</a>, which connects millions of readers to books hosted by libraries, returning traffic and trust to the public web.
-      </p>
-    </div>
-  </section>
-
-<section class="bg-gray-100 py-20 px-6">
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-4xl font-bold text-gray-900 mb-6">With Our Powers Combined:</h2>
-
-    <p class="text-md text-gray-600 max-w-xl mx-auto">
-      When you combine Lenny, OpenLibrary.org, OpenLibrary.press, you don't get a platform, you get a public utility for books. Lenny helps libraries retain their role as digital stewards of knowledge, while OpenLibrary.org powers discovery and access across the  so patrons always find their next great read.
-    </p>
-  </div>
-
+  <!-- Problem Statement -->
+  <section class="py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="grid gap-8 md:grid-cols-3 py-10">
-
-      <!-- Self-hosted -->
-      <div class="bg-gray-50 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Self-Hosted</h3>
-        <p class="text-gray-600 mb-4">
-          Run Lenny as a Docker container on your own server. Full control, full flexibility, zero vendor lock-in.
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+          Libraries Need Digital Independence
+        </h2>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Today's libraries are trapped in endless rental cycles, paying repeatedly for the same ebooks without ever truly owning them.
         </p>
-        <ul class="text-gray-500 list-disc pl-5">
-          <li>Open source & customizable</li>
-          <li>Runs on standard Linux infrastructure</li>
-          <li>Integrated with Open Library metadata</li>
-        </ul>
       </div>
-
-      <!-- Plug & Play -->
-      <div class="bg-gray-50 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Plug & Play</h3>
-        <p class="text-gray-600 mb-4">
-          Get Lenny pre-installed on a Raspberry  plug it in and start lending digital books securely.
-        </p>
-        <ul class="text-gray-500 list-disc pl-5">
-          <li>No setup required</li>
-          <li>Offline-ready local lending</li>
-          <li>Simple updates & connectivity</li>
-        </ul>
-      </div>
-
-      <!-- Hosted -->
-      <div class="bg-gray-50 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Hosted</h3>
-        <p class="text-gray-600 mb-4">
-          Let us take care of everything. A hosted Lenny instance with a web dashboard for simple, secure access.
-        </p>
-        <ul class="text-gray-500 list-disc pl-5">
-          <li>Zero maintenance</li>
-          <li>Web-based admin tools</li>
-          <li>Scalable and secure infrastructure</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-  <section class="py-10 bg-white px-6">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="text-3xl font-bold mb-4">Why Lenny?</h2>
-        <ul class="text-gray-700 space-y-4 list-disc list-inside">
-          <li><strong>Self-hosted:</strong> Open source Docker-powered server you control</li>
-          <li><strong>Plug & Play:</strong> Delivered ready-to-run on Raspberry Pi hardware</li>
-          <li><strong>Hosted:</strong> Access via a clean web interface with zero setup</li>
-          <li><strong>Secure Lending:</strong> Built-in LCP support + Thorium Web Reader</li>
-          <li><strong>Integrated Metadata:</strong> Always up-to-date via OpenLibrary.org</li>
-          <li><strong>Mobile Ready:</strong> OPDS feed works with Thorium, SimplyE, Aldiko</li>
-        </ul>
-      </div>
-      <div>
-        <img src="https://uperfect.com/cdn/shop/files/uperfect-raspberry-pi-case-with-screen-101b08.png?v=1697682510" alt="Raspberry Pi Lenny" class="rounded-xl shadow-lg">
+      
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Unsustainable Costs</h3>
+          <p class="text-gray-600">Libraries pay year after year to rent the same digital content, draining budgets that could serve communities better.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">No Ownership</h3>
+          <p class="text-gray-600">When you rent, you never own. Libraries can't build lasting digital collections or ensure long-term access.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Limited Options</h3>
+          <p class="text-gray-600">Most libraries have no alternative to expensive rental platforms for digital lending and preservation.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Free, Open Source, Built by Nonprofits.</h2>
-      <p class="text-lg text-gray-700 mb-8">
-        Lenny is an open prototype, inclubated by Archive Labs and the team behind Open Library at the Internet Archive.
-        It's designed as a public good: a free digital circulation system for libraries that want to preserve, lend, and serve their communities on their own terms.
-      </p>
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+          Built for Library Independence
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Everything you need to own, preserve, and share digital books your way
+        </p>
+      </div>
 
-      <img class="mx-auto py-10" style="height: 300px;" src="/imgs/lenny.jpg">
+      <div class="space-y-20">
+        <!-- Feature 1 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <div class="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
+              Build & Acquire
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900">
+              Start with thousands of open books
+            </h3>
+            <div class="space-y-4 text-gray-600">
+              <p>Lenny comes preloaded with thousands of open access titles, giving you an instant digital collection.</p>
+              <ul class="space-y-2">
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Easily import and secure your existing library books</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Buy and import from <a href="https://openlibrary.press" class="text-blue-600 hover:underline">OpenLibrary.press</a> with one click</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl">
+              <img src="/imgs/lennybox.jpg" alt="Lenny Library Collection" class="object-cover w-full h-full">
+            </div>
+          </div>
+        </div>
 
-      <a href="mailto:mek@archive.org" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">Try Lenny</a>
+        <!-- Feature 2 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="lg:order-2 space-y-6">
+            <div class="inline-flex items-center px-3 py-1 bg-green-50 text-green-700 text-sm font-medium rounded-full">
+              Lend & Serve
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900">
+              Lend directly to your community
+            </h3>
+            <div class="space-y-4 text-gray-600">
+              <p>Maintain the direct relationship with your patrons while offering modern digital lending experiences.</p>
+              <ul class="space-y-2">
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Customizable digital lending rules</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Built-in LCP protection and Thorium Web Reader</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Analytics dashboard for community insights</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="lg:order-1 relative">
+            <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl">
+              <img src="/imgs/borrow.jpg" alt="Digital Lending Interface" class="object-cover w-full h-full">
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <div class="inline-flex items-center px-3 py-1 bg-purple-50 text-purple-700 text-sm font-medium rounded-full">
+              Connect & Discover
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-gray-900">
+              Automatic up-to-date OPDS feeds
+            </h3>
+            <div class="space-y-4 text-gray-600">
+              <p>Your collection becomes instantly discoverable through industry-standard OPDS feeds.</p>
+              <ul class="space-y-2">
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Real-time metadata from OpenLibrary.org</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Works with Thorium, SimplyE, Aldiko Next, and more</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Shared metadata improves the entire ecosystem</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+              <img src="https://opds.io/img/illustration4.png" alt="OPDS Network" class="max-w-full max-h-full object-contain p-8">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer class="text-center py-10 bg-gray-100 text-gray-500">
-    &copy; 2025 Lenny for Libraries. Built by Archive Labs
+
+  <!-- Federated Vision Section -->
+  <section class="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+          A Federated Future for Libraries
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Imagine a world where every <strong>library</strong> is a critical destination in a unified, global network
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-gray-900">Digitally Sovereign Partners</h3>
+            <p class="text-gray-600 text-lg leading-relaxed">
+              Each <strong>library</strong> library becomes an independent node in a connected ecosystem, maintaining full control over their collections while benefiting from network effects.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <h4 class="text-lg font-semibold text-gray-900">The Open Ecosystem:</h4>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900">Lenny</h5>
+                  <p class="text-gray-600 text-sm">Super-charges every library into a digitally sovereign, discoverable partner</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-8 h-8 bg-green-100 text-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900">
+                    <a href="https://openlibrary.org" class="text-blue-600 hover:underline">OpenLibrary.org</a>
+                  </h5>
+                  <p class="text-gray-600 text-sm">Connects 11.5 million readers to find and borrow books directly from participating libraries</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900">
+                    <a href="https://openlibrary.press" class="text-blue-600 hover:underline">OpenLibrary.press</a>
+                  </h5>
+                  <p class="text-gray-600 text-sm">Empowers authors and publishers to escape corporate platforms and securely sell DRM-free books</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="aspect-square bg-white rounded-2xl shadow-xl p-8 flex items-center justify-center">
+            <img src="https://i.gifer.com/J5A.gif" alt="Connected Library Network" class="max-w-full max-h-full object-contain">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing/Options Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+          Choose Your Deployment
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Deploy Lenny however works best for your library's infrastructure and expertise
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Self-Hosted -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-200 relative">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900">Self-Hosted</h3>
+              <p class="text-gray-600">
+                Run Lenny as a Docker container on your own server. Full control, full flexibility, zero vendor lock-in.
+              </p>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Open source & customizable</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Runs on standard Linux infrastructure</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Integrated with Open Library metadata</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Plug & Play -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-200 relative">
+          <div class="absolute top-4 right-4">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+              Recommended
+            </span>
+          </div>
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900">Plug & Play</h3>
+              <p class="text-gray-600">
+                Get Lenny pre-installed on a Raspberry Pi. Plug it in and start lending digital books securely.
+              </p>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">No setup required</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Offline-ready local lending</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Simple updates & connectivity</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Hosted -->
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-200 relative">
+          <div class="space-y-6">
+            <div class="space-y-2">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900">Hosted</h3>
+              <p class="text-gray-600">
+                Let us take care of everything. A hosted Lenny instance with a web dashboard for simple, secure access.
+              </p>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Zero maintenance</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Web-based admin tools</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">Scalable and secure infrastructure</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left Column - Content -->
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+              Why Lenny?
+            </h2>
+            <p class="text-xl text-gray-600">
+              Free, open source, built by nonprofits for the public good.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <p class="text-gray-600 text-lg leading-relaxed">
+              Lenny is an open prototype, incubated by Archive Labs and the team behind Open Library at the Internet Archive. It's designed as a public good: a free digital circulation system for libraries that want to preserve, lend, and serve their communities on their own terms.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-sm">Self-hosted</h4>
+                  <p class="text-gray-600 text-xs">Open source Docker-powered server you control</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div class="w-8 h-8 bg-green-100 text-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-sm">Plug & Play</h4>
+                  <p class="text-gray-600 text-xs">Delivered ready-to-run on Raspberry Pi hardware</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-sm">Hosted</h4>
+                  <p class="text-gray-600 text-xs">Access via a clean web interface with zero setup</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-sm">Secure Lending</h4>
+                  <p class="text-gray-600 text-xs">Built-in LCP support + Thorium Web Reader</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div class="w-8 h-8 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-sm">Integrated Metadata</h4>
+                  <p class="text-gray-600 text-xs">Always up-to-date via OpenLibrary.org</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 bg-white rounded-lg border border-gray-100">
+                <div class="w-8 h-8 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-sm">Mobile Ready</h4>
+                  <p class="text-gray-600 text-xs">OPDS feed works with Thorium, SimplyE, Aldiko</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <a href="mailto:mek@archive.org" 
+                 class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
+                Try Lenny
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Image -->
+        <div class="relative">
+          <div class="relative bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 shadow-xl">
+            <img src="imgs/lenny.jpg" alt="Lenny Logo" class="w-full max-w-sm mx-auto h-auto object-contain">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl"></div>
+          </div>
+          
+          <!-- Decorative elements -->
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-100 rounded-full opacity-20"></div>
+          <div class="absolute -top-4 -left-4 w-16 h-16 bg-purple-100 rounded-full opacity-20"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        
+        <!-- Logo and Description -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <img src="/imgs/lenny.jpg" alt="Lenny" class="w-10 h-10 rounded-lg">
+            <div>
+              <h3 class="text-lg font-semibold">Lenny for Libraries</h3>
+              <p class="text-gray-400 text-sm">Your Library, Digitally Sovereign</p>
+            </div>
+          </div>
+          <p class="text-gray-400 max-w-md">
+            An open-source Library-in-a-Box that empowers libraries to preserve, own, and lend digital books on their own terms.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/archivelabs/lenny" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wide">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+            <li><a href="https://github.com/archivelabs/lenny" class="text-gray-400 hover:text-white transition-colors">GitHub</a></li>
+            <li><a href="mailto:mek@archive.org" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Related Projects -->
+        <div class="space-y-4">
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wide">Ecosystem</h4>
+          <ul class="space-y-2">
+            <li><a href="https://openlibrary.org" class="text-gray-400 hover:text-white transition-colors">OpenLibrary.org</a></li>
+            <li><a href="https://openlibrary.press" class="text-gray-400 hover:text-white transition-colors">OpenLibrary.press</a></li>
+            <li><a href="https://archive.org" class="text-gray-400 hover:text-white transition-colors">Internet Archive</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p class="text-gray-400">
+          &copy; 2025 Lenny for Libraries. Built by Archive Labs with ❤️ for the public good.
+        </p>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
