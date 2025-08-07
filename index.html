@@ -23,17 +23,51 @@
         
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center space-x-1 bg-gray-100 rounded-lg p-1 border border-gray-200">
-          <a href="#features" class="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white/90 rounded-md transition-all duration-200 font-medium">Features</a>
-          <a href="#about" class="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white/90 rounded-md transition-all duration-200 font-medium">About</a>
+          <a href="#features" class="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white rounded-md transition-all duration-200 font-medium">Features</a>
+          <a href="#about" class="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white rounded-md transition-all duration-200 font-medium">About</a>
           <a href="https://github.com/archivelabs/lenny" class="ml-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-200 shadow-sm hover:shadow-md">Try Lenny</a>
         </nav>
 
         <!-- Mobile Menu Button -->
-        <button class="md:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors" aria-label="Menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors" aria-label="Menu">
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
         </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Slider -->
+    <div id="mobile-nav" class="md:hidden fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+      <div class="absolute inset-0 " id="mobile-nav-backdrop"></div>
+      <div class="absolute right-0 top-0 h-full w-80 max-w-sm bg-white shadow-xl">
+        <div class="flex flex-col h-full">
+          <!-- Header -->
+          <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <div class="flex items-center space-x-3">
+              <img src="/imgs/lenny.jpg" alt="Lenny" class="w-8 h-10 rounded-lg">
+              <div>
+                <h2 class="text-sm font-semibold text-gray-900">Lenny</h2>
+                <p class="text-xs text-gray-500">for Libraries</p>
+              </div>
+            </div>
+            <button id="mobile-nav-close" class="p-2 text-gray-400 hover:text-gray-600 rounded-lg transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Navigation Links -->
+          <nav class="flex-1 px-6 py-6 space-y-4">
+            <a href="#features" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">Features</a>
+            <a href="#about" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium">About</a>
+            <a href="https://github.com/archivelabs/lenny" class="block px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-200 text-center mt-6">Try Lenny</a>
+          </nav>
+        </div>
       </div>
     </div>
   </header>
@@ -742,5 +776,64 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile Navigation Functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    function openMobileNav() {
+      mobileNav.classList.remove('translate-x-full');
+      mobileNav.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+    }
+
+    function closeMobileNav() {
+      mobileNav.classList.add('translate-x-full');
+      mobileNav.classList.remove('translate-x-0');
+      document.body.style.overflow = '';
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }
+
+    // Event listeners
+    mobileMenuButton.addEventListener('click', () => {
+      if (mobileNav.classList.contains('translate-x-full')) {
+        openMobileNav();
+      } else {
+        closeMobileNav();
+      }
+    });
+
+    mobileNavClose.addEventListener('click', closeMobileNav);
+    mobileNavBackdrop.addEventListener('click', closeMobileNav);
+
+    // Close mobile nav when clicking on navigation links
+    const mobileNavLinks = mobileNav.querySelectorAll('a[href^="#"]');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    // Close mobile nav on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileNav.classList.contains('translate-x-full')) {
+        closeMobileNav();
+      }
+    });
+
+    // Copy to clipboard functionality
+    function copyToClipboard() {
+      const command = 'curl -fsSL https://raw.githubusercontent.com/ArchiveLabs/lenny/refs/heads/main/install.sh | sudo sh';
+      navigator.clipboard.writeText(command).then(() => {
+        console.log('Command copied to clipboard');
+      });
+    }
+  </script>
 </body>
 </html>
