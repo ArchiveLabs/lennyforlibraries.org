@@ -4,6 +4,8 @@ The official website for Lenny for Libraries - a library ebook server solution.
 
 This is a [Next.js](https://nextjs.org) project that builds a static website deployable to nginx.
 
+> **🚀 Quick Start**: See [QUICKSTART.md](./QUICKSTART.md) for a fast-track setup guide.
+
 ## Quick Start for Developers
 
 ### Prerequisites
