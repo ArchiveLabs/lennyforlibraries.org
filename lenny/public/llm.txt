@@ -1,0 +1,54 @@
+# Lenny for Libraries
+
+> Lenny is a plug-and-play, open-source, Library-in-a-Box that empowers libraries to preserve, own, and lend digital books on their own terms.
+
+## About
+
+Lenny is an open-source digital library server built by Archive Labs and the Internet Archive team behind Open Library. It enables libraries to:
+- Host and preserve digital book collections
+- Lend ebooks using OPDS (Open Publication Distribution System)
+- Sync metadata from OpenLibrary.org automatically
+- Support LCP (Library of Patron Copies) DRM
+- Integrate with OPDS-compatible reading apps like Thorium Reader
+
+## Quick Installation
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ArchiveLabs/lenny/refs/heads/main/install.sh | sudo sh
+```
+
+**System Requirements:** Requires a Mac or Linux system with curl and sudo access. Compatible with Ubuntu, Debian, and most modern Linux distributions.
+
+## Key Features
+
+- **Preloaded Books**: Thousands of open access titles included out of the box
+- **Bookshelf**: Securely store and host millions of digital books
+- **Card Catalog**: Auto-sync metadata from OpenLibrary
+- **Lending System**: Configurable lending rules with LCP support
+- **Mobile Apps**: Load your Lenny feed on any OPDS-compatible reader
+- **Thorium Reader**: High-performance reading experience
+- **Marketplace**: Expand your collection with ease
+
+## Deployment Options
+
+1. **Self-Hosted**: Run Lenny as a Docker container on your own server. Open source & customizable with standard Linux infrastructure and Open Library integration.
+2. **Plug & Play**: Get Lenny pre-installed on a Raspberry Pi. No setup required, offline-ready with simple updates. Contact mek@archive.org for inquiries.
+3. **Hosted**: Managed hosting with web dashboard access. Zero maintenance with scalable infrastructure. Contact mek@archive.org for inquiries.
+
+## Links
+
+- Website: https://lennyforlibraries.org
+- GitHub: https://github.com/ArchiveLabs/lenny
+- Playground: https://reader.archive.org/?opds=https://lennyforlibraries.org/v1/api/opds
+
+## About Archive Labs
+
+Lenny is an open-source project by Archive Labs and the Internet Archive team behind Open Library. Free & Open Source, built for the public good.
+
+## License
+
+Lenny is licensed under AGPLv3.
+
+## Contact
+
+For inquiries, email mek@archive.org
