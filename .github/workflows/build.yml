@@ -1,0 +1,45 @@
+name: Build Static Site
+
+on:
+  push:
+    branches:
+      - new
+  pull_request:
+    branches:
+      - new
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build static site
+        run: npm run build
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: out/
+          retention-days: 30
+      
+      - name: Display build info
+        run: |
+          echo "Build completed successfully!"
+          echo "Total files in output:"
+          find out -type f | wc -l
+          echo "Output directory size:"
+          du -sh out/
