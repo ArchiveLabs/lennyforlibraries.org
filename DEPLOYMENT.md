@@ -26,10 +26,10 @@ To build the site manually:
 
 ```bash
 # Install dependencies (first time only)
-npm install
+bun install
 
 # Build the static site
-npm run build
+bun run build
 ```
 
 This creates an `out/` directory containing all static files.
@@ -51,7 +51,7 @@ This approach keeps the git repository separate from the build artifacts:
 
 ```bash
 # On your local machine or CI server
-npm run build
+bun run build
 
 # Copy to server
 scp -r out/* user@server:/var/www/lennyforlibraries.org/build/
@@ -132,8 +132,8 @@ cd /var/www/lennyforlibraries.org
 git fetch origin new
 git checkout new
 git pull origin new
-npm install
-npm run build
+bun install
+bun run build
 ```
 
 2. Update nginx to serve from the `out/` directory:
@@ -182,10 +182,10 @@ git pull origin "$BRANCH"
 
 # Install dependencies and build
 echo "Installing dependencies..."
-npm ci --production=false
+bun install --frozen-lockfile
 
 echo "Building site..."
-npm run build
+bun run build
 
 # Copy build to deployment directory
 echo "Copying build files..."
@@ -225,8 +225,8 @@ See the workflow file for implementation details.
 
 ### Build Fails
 
-- Ensure Node.js version is 20 or higher
-- Clear cache and reinstall: `rm -rf node_modules .next && npm install`
+- Ensure Bun is installed (or Node.js version 20 or higher)
+- Clear cache and reinstall: `rm -rf node_modules .next && bun install`
 - Check build logs for specific errors
 
 ### Nginx Not Serving Files

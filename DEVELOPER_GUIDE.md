@@ -11,19 +11,19 @@ This guide provides instructions for developers and AI agents working on lennyfo
    git clone https://github.com/ArchiveLabs/lennyforlibraries.org.git
    cd lennyforlibraries.org
    git checkout new  # Work on the 'new' branch
-   npm install
+   bun install
    ```
 
 2. **Start development server**:
    ```bash
-   npm run dev
+   bun run dev
    ```
    Visit http://localhost:3000
 
 3. **Build and test**:
    ```bash
-   npm run build
-   npx serve out  # Test the production build
+   bun run build
+   bunx serve out  # Test the production build
    ```
 
 ### For AI Agents
@@ -33,7 +33,7 @@ When working on this repository:
 1. **Always work on the `new` branch** - this is the active development branch
 2. **The project is at the root** - all Next.js files are in the repository root (not in a subdirectory)
 3. **Build output goes to `out/`** - this directory is gitignored and contains static files
-4. **Test builds before committing** - always verify that `npm run build` completes successfully
+4. **Test builds before committing** - always verify that `bun run build` completes successfully
 
 ## Project Architecture
 
@@ -89,9 +89,9 @@ lennyforlibraries.org/
 
 3. **Test locally**:
    ```bash
-   npm run dev  # Development server
-   npm run lint # Check for linting errors
-   npm run build # Verify build works
+   bun run dev  # Development server
+   bun run lint # Check for linting errors
+   bun run build # Verify build works
    ```
 
 4. **Commit and push**:
@@ -109,13 +109,13 @@ Always test the production build before committing:
 
 ```bash
 # Build the site
-npm run build
+bun run build
 
 # Verify the out/ directory was created
 ls -la out/
 
 # Test the static site locally
-npx serve out
+bunx serve out
 # or
 cd out && python3 -m http.server 8000
 ```
@@ -179,20 +179,20 @@ Visit the local server to verify:
 
 ```bash
 # Install a new package
-npm install package-name
+bun add package-name
 
 # Install as dev dependency
-npm install -D package-name
+bun add -d package-name
 
 # Always run build after adding dependencies
-npm run build
+bun run build
 ```
 
 ## Build Process Details
 
 ### What Happens During Build
 
-1. **Dependency Resolution**: npm installs all required packages
+1. **Dependency Resolution**: bun installs all required packages
 2. **TypeScript Compilation**: All `.ts` and `.tsx` files are compiled
 3. **Static Generation**: Next.js generates HTML for all pages
 4. **Asset Optimization**: Images, CSS, and JS are optimized
@@ -224,11 +224,11 @@ These directories are generated during development/build and should never be com
 
 ### Build Errors
 
-**Problem**: `npm run build` fails with TypeScript errors
+**Problem**: `bun run build` fails with TypeScript errors
 **Solution**: 
 ```bash
 # Check for type errors
-npx tsc --noEmit
+bunx tsc --noEmit
 # Fix reported errors
 ```
 
@@ -236,8 +236,8 @@ npx tsc --noEmit
 **Solution**:
 ```bash
 # Reinstall dependencies
-rm -rf node_modules package-lock.json
-npm install
+rm -rf node_modules bun.lockb
+bun install
 ```
 
 **Problem**: Build works locally but fails in CI
@@ -251,7 +251,7 @@ npm install
 # Kill process on port 3000
 lsof -ti:3000 | xargs kill -9
 # Or use a different port
-PORT=3001 npm run dev
+PORT=3001 bun run dev
 ```
 
 **Problem**: Changes not reflecting
@@ -259,18 +259,18 @@ PORT=3001 npm run dev
 ```bash
 # Clear Next.js cache
 rm -rf .next
-npm run dev
+bun run dev
 ```
 
 ## Testing Checklist
 
 Before submitting changes:
 
-- [ ] Code builds without errors (`npm run build`)
-- [ ] No TypeScript errors (`npx tsc --noEmit`)
-- [ ] No linting errors (`npm run lint`)
-- [ ] Development server runs (`npm run dev`)
-- [ ] Production build tested locally (`npx serve out`)
+- [ ] Code builds without errors (`bun run build`)
+- [ ] No TypeScript errors (`bunx tsc --noEmit`)
+- [ ] No linting errors (`bun run lint`)
+- [ ] Development server runs (`bun run dev`)
+- [ ] Production build tested locally (`bunx serve out`)
 - [ ] All pages accessible and working
 - [ ] No console errors in browser
 - [ ] Responsive design works (test mobile view)
@@ -289,9 +289,9 @@ The `.github/workflows/build.yml` workflow:
 
 2. **Steps**:
    - Checkout code
-   - Setup Node.js 20
-   - Install dependencies with `npm ci`
-   - Build site with `npm run build`
+   - Setup Bun
+   - Install dependencies with `bun install --frozen-lockfile`
+   - Build site with `bun run build`
    - Upload build artifacts
    - Display build information
 
@@ -312,7 +312,7 @@ Quick deployment to nginx:
 
 ```bash
 # Build locally
-npm run build
+bun run build
 
 # Copy to server
 scp -r out/* user@server:/var/www/lennyforlibraries.org/build/

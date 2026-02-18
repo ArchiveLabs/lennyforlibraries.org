@@ -35,24 +35,18 @@ log_error() {
 check_requirements() {
     log_info "Checking requirements..."
     
-    # Check if Node.js is installed
-    if ! command -v node &> /dev/null; then
-        log_error "Node.js is not installed. Please install Node.js $NODE_VERSION or higher."
+    # Check if bun is installed
+    if ! command -v bun &> /dev/null; then
+        log_error "Bun is not installed. Please install bun: https://bun.sh"
         exit 1
     fi
     
-    # Check Node version
-    NODE_CURRENT=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
-    if [ "$NODE_CURRENT" -lt "$NODE_VERSION" ]; then
-        log_error "Node.js version $NODE_VERSION or higher is required. Current: $(node -v)"
-        exit 1
-    fi
+    # Check bun version
+    BUN_VERSION=$(bun -v)
+    log_info "Using bun version: $BUN_VERSION"
     
-    # Check if npm is installed
-    if ! command -v npm &> /dev/null; then
-        log_error "npm is not installed."
-        exit 1
-    fi
+    # npm check removed - using bun instead
+    :
     
     # Check if git is installed
     if ! command -v git &> /dev/null; then
@@ -93,8 +87,8 @@ install_dependencies() {
     
     cd "$REPO_DIR"
     
-    # Use npm ci for reproducible builds
-    npm ci --production=false
+    # Use bun install with frozen lockfile for reproducible builds
+    bun install --frozen-lockfile
     
     log_info "✓ Dependencies installed"
 }
@@ -108,7 +102,7 @@ build_site() {
     rm -rf .next out
     
     # Build the site
-    npm run build
+    bun run build
     
     log_info "✓ Site built successfully"
 }

@@ -65,7 +65,7 @@ Update the font definitions to use the CSS variables:
 Ensure your build environment has internet access:
 
 ```bash
-npm run build
+bun run build
 ```
 
 ### Why Google Fonts?

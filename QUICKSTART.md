@@ -15,13 +15,13 @@ cd lennyforlibraries.org
 git checkout new
 
 # Install dependencies
-npm install
+bun install
 ```
 
 ### 2. Start Development Server (30 seconds)
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Visit http://localhost:3000 - the page will auto-reload as you make changes.
@@ -33,7 +33,7 @@ Visit http://localhost:3000 - the page will auto-reload as you make changes.
 - Before committing, verify the build works:
 
 ```bash
-npm run build
+bun run build
 ```
 
 ## For Quick Testing
@@ -42,10 +42,10 @@ npm run build
 
 ```bash
 # Build the site
-npm run build
+bun run build
 
 # Serve the static files
-npx serve out
+bunx serve out
 
 # Or with Python
 cd out && python3 -m http.server 8000
@@ -90,7 +90,7 @@ The script will:
 
 ```bash
 # On local machine
-npm run build
+bun run build
 scp -r out/* user@server:/var/www/lennyforlibraries.org/build/
 
 # On server
@@ -102,9 +102,9 @@ sudo nginx -t && sudo systemctl reload nginx
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build static site |
-| `npm run lint` | Check code quality |
+| `bun run dev` | Start development server |
+| `bun run build` | Build static site |
+| `bun run lint` | Check code quality |
 | `./deploy.sh` | Automated deployment (server) |
 
 ## File Structure Quick Reference
@@ -154,9 +154,9 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete nginx configuration including 
 
 ```bash
 # Clear cache and reinstall
-rm -rf node_modules .next out package-lock.json
-npm install
-npm run build
+rm -rf node_modules .next out bun.lockb
+bun install
+bun run build
 ```
 
 ### Port 3000 Already in Use
@@ -166,7 +166,7 @@ npm run build
 lsof -ti:3000 | xargs kill -9
 
 # Or use different port
-PORT=3001 npm run dev
+PORT=3001 bun run dev
 ```
 
 ### Changes Not Showing
@@ -174,7 +174,7 @@ PORT=3001 npm run dev
 ```bash
 # Clear Next.js cache
 rm -rf .next
-npm run dev
+bun run dev
 ```
 
 ## Need More Help?
@@ -197,6 +197,6 @@ npm run dev
 
 **Quick Tips:**
 - Always work on the `new` branch
-- Test builds before committing: `npm run build`
+- Test builds before committing: `bun run build`
 - The `out/` directory contains your deployable static site
 - Use `./deploy.sh` on the server for automated deployments
