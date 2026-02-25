@@ -1,15 +1,15 @@
 #!/bin/bash
 # deploy.sh - Automated deployment script for lennyforlibraries.org
 #
-# This script automates the deployment process for the static website.
-# It can be run on the server to pull, build, and deploy changes.
+# This script uses Docker to build the static site in isolation,
+# then copies the output for nginx to serve.
 
 set -e  # Exit on error
 set -u  # Exit on undefined variable
 
 # Configuration - adjust these variables for your environment
 REPO_DIR="${REPO_DIR:-/var/www/lennyforlibraries.org}"
-BUILD_DIR="${BUILD_DIR:-$REPO_DIR/build}"
+BUILD_DIR="${BUILD_DIR:-$REPO_DIR/out}"
 BRANCH="${BRANCH:-new}"
 NODE_VERSION="${NODE_VERSION:-20}"
 
@@ -35,18 +35,15 @@ log_error() {
 check_requirements() {
     log_info "Checking requirements..."
     
-    # Check if bun is installed
-    if ! command -v bun &> /dev/null; then
-        log_error "Bun is not installed. Please install bun: https://bun.sh"
+    # Check if Docker is installed
+    if ! command -v docker &> /dev/null; then
+        log_error "Docker is not installed."
         exit 1
     fi
     
-    # Check bun version
-    BUN_VERSION=$(bun -v)
-    log_info "Using bun version: $BUN_VERSION"
-    
-    # npm check removed - using bun instead
-    :
+    # Check Docker version
+    DOCKER_VERSION=$(docker --version)
+    log_info "Using $DOCKER_VERSION"
     
     # Check if git is installed
     if ! command -v git &> /dev/null; then
@@ -82,58 +79,43 @@ pull_latest_code() {
     return 0
 }
 
-install_dependencies() {
-    log_info "Installing dependencies..."
-    
-    cd "$REPO_DIR"
-    
-    # Use bun install with frozen lockfile for reproducible builds
-    bun install --frozen-lockfile
-    
-    log_info "✓ Dependencies installed"
-}
-
 build_site() {
-    log_info "Building site..."
+    log_info "Building site with Docker..."
     
     cd "$REPO_DIR"
     
     # Remove old build artifacts
     rm -rf .next out
     
-    # Build the site
-    bun run build
+    # Build the builder image
+    docker build --target builder -t lenny-builder .
+    
+    # Create container and copy files
+    docker create --name lenny-builder-temp lenny-builder
+    mkdir -p out
+    docker cp lenny-builder-temp:/app/out/. out/
+    docker rm lenny-builder-temp
+    
+    # Clean up builder image
+    docker rmi lenny-builder
     
     log_info "✓ Site built successfully"
 }
 
 deploy_build() {
-    log_info "Deploying build files..."
+    log_info "Setting up build directory for nginx..."
     
-    # Create build directory if it doesn't exist
-    mkdir -p "$BUILD_DIR"
+    # The out/ directory is now ready for nginx
+    # If you want a separate build/ directory, uncomment below:
+    # mkdir -p "$BUILD_DIR"
+    # rm -rf "$BUILD_DIR"/*
+    # cp -r "$REPO_DIR"/out/* "$BUILD_DIR"/
     
-    # Backup current build (optional)
-    if [ -d "$BUILD_DIR" ] && [ "$(ls -A $BUILD_DIR)" ]; then
-        BACKUP_DIR="$BUILD_DIR.backup.$(date +%Y%m%d_%H%M%S)"
-        log_info "Backing up current build to $BACKUP_DIR"
-        cp -r "$BUILD_DIR" "$BACKUP_DIR"
-        
-        # Keep only last 3 backups
-        ls -dt "$REPO_DIR"/build.backup.* 2>/dev/null | tail -n +4 | xargs -r rm -rf
-    fi
+    # Set proper permissions on out/
+    find "$REPO_DIR/out" -type f -exec chmod 644 {} \;
+    find "$REPO_DIR/out" -type d -exec chmod 755 {} \;
     
-    # Clear existing files
-    rm -rf "$BUILD_DIR"/*
-    
-    # Copy new build
-    cp -r "$REPO_DIR"/out/* "$BUILD_DIR"/
-    
-    # Set proper permissions
-    find "$BUILD_DIR" -type f -exec chmod 644 {} \;
-    find "$BUILD_DIR" -type d -exec chmod 755 {} \;
-    
-    log_info "✓ Build deployed to $BUILD_DIR"
+    log_info "✓ Build ready at $REPO_DIR/out"
 }
 
 reload_nginx() {
@@ -155,9 +137,9 @@ display_summary() {
     echo "Summary:"
     echo "  Repository: $REPO_DIR"
     echo "  Branch: $BRANCH"
-    echo "  Build directory: $BUILD_DIR"
-    echo "  Files deployed: $(find "$BUILD_DIR" -type f | wc -l)"
-    echo "  Total size: $(du -sh "$BUILD_DIR" | cut -f1)"
+    echo "  Output directory: $REPO_DIR/out"
+    echo "  Files deployed: $(find "$REPO_DIR/out" -type f | wc -l)"
+    echo "  Total size: $(du -sh "$REPO_DIR/out" | cut -f1)"
     echo ""
     log_info "Your site is now live!"
 }
@@ -174,7 +156,6 @@ main() {
         exit 0
     fi
     
-    install_dependencies
     build_site
     deploy_build
     
