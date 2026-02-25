@@ -10,7 +10,7 @@ set -u  # Exit on undefined variable
 # Configuration - adjust these variables for your environment
 REPO_DIR="${REPO_DIR:-/var/www/lennyforlibraries.org}"
 BUILD_DIR="${BUILD_DIR:-$REPO_DIR/out}"
-BRANCH="${BRANCH:-new}"
+BRANCH="${BRANCH:-new-deploy}"
 NODE_VERSION="${NODE_VERSION:-20}"
 
 # Colors for output
