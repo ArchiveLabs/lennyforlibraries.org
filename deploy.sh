@@ -62,15 +62,6 @@ pull_latest_code() {
     # Fetch latest changes
     git fetch origin "$BRANCH"
     
-    # Check if there are any changes
-    LOCAL=$(git rev-parse HEAD)
-    REMOTE=$(git rev-parse "origin/$BRANCH")
-    
-    if [ "$LOCAL" = "$REMOTE" ]; then
-        log_warn "No new changes to deploy."
-        return 1
-    fi
-    
     # Checkout and pull
     git checkout "$BRANCH"
     git pull origin "$BRANCH"
@@ -159,10 +150,7 @@ main() {
     
     check_requirements
     
-    if ! pull_latest_code; then
-        log_info "Deployment skipped - no changes to deploy"
-        exit 0
-    fi
+    pull_latest_code
     
     build_site
     deploy_build
