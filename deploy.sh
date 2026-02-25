@@ -99,6 +99,14 @@ build_site() {
     # Clean up builder image
     docker rmi lenny-builder
     
+    # Rename _next to _next_lfl to avoid conflict with Lenny Server
+    # HTML references /_next_lfl/_next/static/... so we need nested structure
+    if [ -d "out/_next" ]; then
+        mv out/_next out/_next_lfl_temp
+        mkdir -p out/_next_lfl
+        mv out/_next_lfl_temp out/_next_lfl/_next
+    fi
+    
     log_info "✓ Site built successfully"
 }
 

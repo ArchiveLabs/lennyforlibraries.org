@@ -67,9 +67,9 @@ const nextConfig: NextConfig = {
   output: 'export',
   
   // Set base path and asset prefix for static hosting
-  // Uncomment and adjust if deploying to a subdirectory
+  // Using /_next_lfl to avoid conflict with Lenny Server's /_next
   // basePath: '',
-  // assetPrefix: '',
+  assetPrefix: '/_next_lfl',
   
   // Note: headers() is not supported with static export
   // Security headers should be configured in nginx instead

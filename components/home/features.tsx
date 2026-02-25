@@ -235,9 +235,9 @@ export function Features() {
     <Section id="features" className="bg-transparent">
       <Container>
         <div className="mb-12 text-center max-w-3xl mx-auto">
-          <H2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">What is Lenny?</H2>
+          <H2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Lenny for Libraries</H2>
           <Text className="text-base text-muted-foreground">
-             Lenny is a library server that features everything you need to preserve, lend, and serve digital books your way.
+             A stand-alone, digital bookshelf for preserving and serving digital books.
           </Text>
         </div>
         
