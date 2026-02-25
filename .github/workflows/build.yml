@@ -1,0 +1,47 @@
+name: Build Static Site
+
+on:
+  push:
+    branches:
+      - new
+  pull_request:
+    branches:
+      - new
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      
+      - name: Build static site
+        run: bun run build
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: out/
+          retention-days: 30
+      
+      - name: Display build info
+        run: |
+          echo "Build completed successfully!"
+          echo "Total files in output:"
+          find out -type f | wc -l
+          echo "Output directory size:"
+          du -sh out/
