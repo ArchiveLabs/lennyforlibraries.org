@@ -57,7 +57,7 @@ export function Hero() {
           >
             <div className="relative w-full aspect-[16/9] rounded-2xl md:rounded-3xl border border-zinc-200 bg-black shadow-2xl dark:border-zinc-800 overflow-hidden group">
               <iframe
-                src="https://archive.org/embed/lenny_202508"
+                src="https://archive.org/embed/lenny_20250829"
                 className="w-full h-full"
                 frameBorder="0"
                 allowFullScreen
